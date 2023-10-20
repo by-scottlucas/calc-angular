@@ -1,2 +1,3 @@
-# calculadora-angular
-Projeto de uma calculadora matemática desenvolvida em Angular
+# Projeto Calculadora Matemática em Angular
+
+Projeto de uma calculadora matemática desenvolvida em Angular.
