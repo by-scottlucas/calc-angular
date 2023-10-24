@@ -15,8 +15,9 @@
 }
 
 .display {
-    display: flex;
-    margin: 0 auto;
+    display: grid;
+    margin: 4px;
+    grid-template-columns: 1fr;
     height: 80px;
     margin-bottom: 4px;
 }
