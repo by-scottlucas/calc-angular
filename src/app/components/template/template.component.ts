@@ -19,20 +19,31 @@ export class TemplateComponent {
   n9: number = 9;
   n0: number = 0;
 
-  display : string = '';
+  display: string = '';
+
+  limpar() {
+    this.display = '';
+  }
 
   num0() {
     this.n0 = 0;
-  }
-  num1() {
 
-    this.n0 = this.n1;
-
-    if (this.n1) {
-      let numberAsString : string = `${this.n1}`;
+    if (this.display) {
+      let numberAsString: string = `${this.n0}`;
       this.display += numberAsString;
     }
   }
+
+  num1() {
+
+    this.n1 = 1;
+
+    if (this.n1) {
+      let numberAsString: string = `${this.n1}`;
+      this.display += numberAsString;
+    }
+  }
+
   num2() {
     this.n2 = 2;
   }
