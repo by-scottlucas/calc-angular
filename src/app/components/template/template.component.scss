@@ -15,11 +15,17 @@
 }
 
 .display {
+    font-family: Calibri;
+    font-size: 2rem;
+    text-align: end;
+    align-items: center;
+    justify-content: center;
     display: grid;
     margin: 4px;
     grid-template-columns: 1fr;
     height: 80px;
     margin-bottom: 4px;
+    background-color: #fff;
 }
 
 .btns {

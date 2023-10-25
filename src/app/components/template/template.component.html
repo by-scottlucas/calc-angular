@@ -2,39 +2,41 @@
 
     <h1>Calculadora</h1>
 
-    <input type="text" class="display" id="display">
+    <!-- <input type="text" class="display" id="display" {{ teste }}> -->
+
+    <p class="display">{{ n0 }}</p>
 
     <article class="btns">
 
 
-        <button id="c">C</button>
-        <button id="delete">Apagar</button>
+        <button id="c" onclick="limpar()">C</button>
+        <button id="delete" onclick="apagar()">Apagar</button>
         <button id="porcent">%</button>
         <button id="divisao">÷</button>
         
-        <button id="n7">7</button>
-        <button id="n8">8</button>
-        <button id="n9">9</button>
+        <button (click)="num7()" [value]="n7">7</button>
+        <button (click)="num8()" [value]="n8">8</button>
+        <button (click)="num9()" [value]="n9">9</button>
 
         <button id="multip">X</button>
 
-        <button id="n4">4</button>
-        <button id="n5">5</button>
-        <button id="n6">6</button>
+        <button (click)="num4()" [value]="n4">4</button>
+        <button (click)="num5()" [value]="n5">5</button>
+        <button (click)="num6()" [value]="n6">6</button>
 
         <button id="subtracao">-</button>
 
-        <button id="n1">1</button>
-        <button id="n2">2</button>
-        <button id="n3">3</button>
+        <button (click)="num3()" [value]="n3">3</button>
+        <button (click)="num2()" [value]="n2">2</button>
+        <button (click)="num1()" [value]="n1">1</button>
 
-        <button id="adicao">+</button>
+        <button>+</button>
 
         <button id="model">+/-</button>
-        <button id="n0">0</button>
+        <button (click)="num0()" [value]="n0">0</button>
         <button id="virgula">,</button>
 
-        <button id="resultado">=</button>
+        <button>=</button>
     </article>
 
 </main>
