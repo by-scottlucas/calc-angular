@@ -4,39 +4,38 @@
 
     <!-- <input type="text" class="display" id="display" {{ teste }}> -->
 
-    <p class="display">{{ display }}</p>
+    <p class="display">{{ operacaoAnterior }}  {{ operacaoAtual }}</p>
 
-    <article class="btns">
+    <article class="btns" id="btns">
 
 
-        <button (click)="limpar()">C</button>
-        <button (click)="limparRegistro()">CE</button>
-        <button (click)="porcent()" [value]="porcent">%</button>
-        <button (click)="divisao()">÷</button>
+        <button (click)="addDisplay('C')">C</button>
+        <button (click)="addDisplay('CE')">CE</button>
+        <button (click)="addDisplay('DEL')">DEL</button>
+        <button (click)="addDisplay('/')">÷</button>
         
-        <button (click)="num7()" [value]="n7">7</button>
-        <button (click)="num8()" [value]="n8">8</button>
-        <button (click)="num9()" [value]="n9">9</button>
+        <button (click)="addDisplay('7')">7</button>
+        <button (click)="addDisplay('8')">8</button>
+        <button (click)="addDisplay('9')">9</button>
 
-        <button (click)="multipli()">X</button>
+        <button (click)="addDisplay('*')">X</button>
 
-        <button (click)="num4()" [value]="n4">4</button>
-        <button (click)="num5()" [value]="n5">5</button>
-        <button (click)="num6()" [value]="n6">6</button>
+        <button (click)="addDisplay('4')">4</button>
+        <button (click)="addDisplay('5')">5</button>
+        <button (click)="addDisplay('6')">6</button>
 
-        <button (click)="subtracao()">-</button>
+        <button (click)="addDisplay('-')">-</button>
 
-        <button (click)="num3()" [value]="n3">3</button>
-        <button (click)="num2()" [value]="n2">2</button>
-        <button (click)="num1()" [value]="n1">1</button>
+        <button (click)="addDisplay('3')">3</button>
+        <button (click)="addDisplay('2')">2</button>
+        <button (click)="addDisplay('1')">1</button>
 
-        <button (click)="soma()">+</button>
+        <button (click)="addDisplay('+')">+</button>
 
-        <button (click)="model()">+/-</button>
-        <button (click)="num0()" [value]="n0">0</button>
-        <button (click)="virgula()">,</button>
-
-        <button (click)="resultado()">=</button>
+        <button (click)="addDisplay('0')">0</button>
+        <button (click)="addDisplay('=')">=</button>
+        <button (click)="addDisplay('.')">.</button>
+        <button (click)="addDisplay('%')">%</button>
     </article>
 
 </main>

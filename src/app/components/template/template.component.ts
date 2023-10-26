@@ -8,180 +8,144 @@ import { Component, Input } from '@angular/core';
 
 export class TemplateComponent {
 
-  display : string = '';
+  operacaoAnterior: any = '';
+  operacaoAtual: any = '';
+  primeiraOperacao = true;
 
-  adicao : string = ''
-  // subtracao : string = ''
-  // multipli : string = ''
-  // divisao : string = ''
-  // resultado : string = ''
-  // porcent : string = ''
-  // model : string = ''
-  // virgula : string = ''
 
-  // Números
+  addDisplay(value: any) {
 
-  n1 = 0;
-  n2 = 0;
-  n3 = 0;
-  n4 = 0;
-  n5 = 0;
-  n6 = 0;
-  n7 = 0;
-  n8 = 0;
-  n9 = 0;
-  n0 = 0;
+    if (this.primeiraOperacao) {
+      if (value >= 0 || value === ".") {
+        this.addDigito(value);
+      }
+      else {
+        this.processaOperacao(value)
+      }
+    }
+    else {
+      this.operacaoAnterior = "";
+      this.operacaoAtual = "";
+      this.primeiraOperacao = true;
 
-  num0() {
-    this.n0 = 0;
+      if (value >= 0 || value === ".") {
+        this.addDigito(value);
+      }
+      else {
+        this.processaOperacao(value)
+      }
+    }
 
-    if (this.display) {
-      let numberAsString: string = `${this.n0}`;
-      this.display += numberAsString;
+  }
+
+  addDigito(digito: any) {
+    if (digito === "." && this.operacaoAtual.includes(".")) {
+      return
+    }
+    this.operacaoAtual += digito;
+    this.updateDisplay(null, null, null, null);
+  }
+
+  processaOperacao(operacao: any) {
+    if (this.operacaoAtual === "" && operacao !== "C") {
+      if (this.operacaoAnterior !== "") {
+        this.alterarOperacao(operacao);
+      }
+      return;
+    }
+    let valorOperacao: any;
+    let anterior = +this.operacaoAnterior.split("")[0];
+    let atual = +this.operacaoAtual;
+
+    switch (operacao) {
+      case "+":
+        valorOperacao = anterior + atual;
+        this.updateDisplay(valorOperacao, operacao, atual, anterior)
+        break;
+      case "-":
+        valorOperacao = anterior - atual;
+        this.updateDisplay(valorOperacao, operacao, atual, anterior)
+        break;
+      case "*":
+        valorOperacao = anterior * atual;
+        this.updateDisplay(valorOperacao, operacao, atual, anterior)
+        break;
+      case "/":
+        valorOperacao = anterior / atual;
+        this.updateDisplay(valorOperacao, operacao, atual, anterior)
+        break;
+      case "C":
+        this.processaOperacaoC()
+        break;
+      case "CE":
+        this.processaOperacaoCE()
+        break;
+      case "=":
+        this.processaOperacaoIgual()
+        break;
+      case ".":
+        this.processaOperacaoPonto()
+        break;
+      case "DEL":
+        this.processaOperacaoDEL()
+        break;
+    }
+
+  }
+  alterarOperacao(operacao: any) {
+
+    const operacaoMat = ["+", "-", "*", "/"];
+
+    if (operacao.includes(operacao)) {
+      return;
+    }
+
+    this.operacaoAnterior = this.operacaoAnterior.trim().slice(0, -1) + operacao;
+
+
+  }
+
+  updateDisplay(valorOperacao = null, operacao = null, atual: any, anterior: any) {
+    if (valorOperacao !== null) {
+      if (anterior === 0) {
+        valorOperacao = atual;
+      }
+      this.operacaoAnterior = `${atual} ${operacao}`;
+
+      if (anterior > 0) {
+        this.operacaoAnterior = `${anterior} ${operacao} ${atual} =`
+        this.operacaoAtual = valorOperacao;
+      } else {
+        this.operacaoAtual = "";
+      }
     }
   }
 
-  num1() {
-
-    this.n1 = 1;
-
-    if (this.n1) {
-      let numberAsString: string = `${this.n1}`;
-      this.display += numberAsString;
-    }
+  processaOperacaoC() {
+    this.operacaoAtual = "";
+    this.operacaoAnterior = "";
   }
 
-  num2() {
-
-    this.n2 = 2;
-
-    if (this.n2) {
-      let numberAsString: string = `${this.n2}`;
-      this.display += numberAsString;
-    }
-  }
-
-  num3() {
-
-    this.n3 = 3;
-
-    if (this.n3) {
-      let numberAsString: string = `${this.n3}`;
-      this.display += numberAsString;
-    }
-  }
-
-  num4() {
-
-    this.n4 = 4;
-
-    if (this.n4) {
-      let numberAsString: string = `${this.n4}`;
-      this.display += numberAsString;
-    }
-  }
-
-  num5() {
-
-    this.n5 = 5;
-
-    if (this.n5) {
-      let numberAsString: string = `${this.n5}`;
-      this.display += numberAsString;
-    }
-  }
-
-  num6() {
-
-    this.n6 = 6;
-
-    if (this.n6) {
-      let numberAsString: string = `${this.n6}`;
-      this.display += numberAsString;
-    }
-  }
-
-  num7() {
-
-    this.n7 = 7;
-
-    if (this.n7) {
-      let numberAsString: string = `${this.n7}`;
-      this.display += numberAsString;
-    }
-  }
-
-  num8() {
-
-    this.n8 = 8;
-
-    if (this.n8) {
-      let numberAsString: string = `${this.n8}`;
-      this.display += numberAsString;
-    }
-  }
-
-  num9() {
-
-    this.n9 = 9;
-
-    if (this.n9) {
-      let numberAsString: string = `${this.n9}`;
-      this.display += numberAsString;
-    }
-  }
-
-
-  // Operadores, Simbolos e Funções
-
-  limpar() {
-    this.display = '';
-  }
-
-  limparRegistro() {
-    location.reload();
-  }
-
-
-  soma(){
-    this.display += "+";
-    
+  processaOperacaoCE() {
+    this.operacaoAtual = "";
 
   }
 
-  subtracao(){
-
+  processaOperacaoDEL() {
+    this.operacaoAtual = this.operacaoAtual.slice(0, -1);
   }
 
-  multipli(){
-
+  processaOperacaoIgual() {
+    let operacao = this.operacaoAnterior.split(" ")[1];
+    this.primeiraOperacao = false;
+    this.processaOperacao(operacao);
   }
 
-  divisao(){
-
-  }
-
-  porcent(){
-
-
-  }
-
-  model() {
-
-  }
-
-  virgula() {
-
-  }
-
-  resultado() {
-    
-
+  processaOperacaoPonto() {
+    this.operacaoAtual = ".";
   }
 
 
-
-  constructor() { }
 
 
 }
