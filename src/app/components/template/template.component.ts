@@ -8,14 +8,14 @@ import { Component, Input } from '@angular/core';
 
 export class TemplateComponent {
 
-  operacaoAnterior: any = '';
-  operacaoAtual: any = '';
-  primeiraOperacao = true;
+  num1: any = '';
+  num2: any = '';
+  firstNumber = true;
 
 
   addDisplay(value: any) {
 
-    if (this.primeiraOperacao) {
+    if (this.firstNumber) {
       if (value >= 0 || value === ".") {
         this.addDigito(value);
       }
@@ -24,9 +24,9 @@ export class TemplateComponent {
       }
     }
     else {
-      this.operacaoAnterior = "";
-      this.operacaoAtual = "";
-      this.primeiraOperacao = true;
+      this.num1 = "";
+      this.num2 = "";
+      this.firstNumber = true;
 
       if (value >= 0 || value === ".") {
         this.addDigito(value);
@@ -39,23 +39,23 @@ export class TemplateComponent {
   }
 
   addDigito(digito: any) {
-    if (digito === "." && this.operacaoAtual.includes(".")) {
+    if (digito === "." && this.num2.includes(".")) {
       return
     }
-    this.operacaoAtual += digito;
+    this.num2 += digito;
     this.updateDisplay(null, null, null, null);
   }
 
   processaOperacao(operacao: any) {
-    if (this.operacaoAtual === "" && operacao !== "C") {
-      if (this.operacaoAnterior !== "") {
+    if (this.num2 === "" && operacao !== "C") {
+      if (this.num1 !== "") {
         this.alterarOperacao(operacao);
       }
       return;
     }
     let valorOperacao: any;
-    let anterior = +this.operacaoAnterior.split(" ")[0];
-    let atual = +this.operacaoAtual;
+    let anterior = +this.num1.split(" ")[0];
+    let atual = +this.num2;
 
     switch (operacao) {
       case "+":
@@ -100,7 +100,7 @@ export class TemplateComponent {
       return;
     }
 
-    this.operacaoAnterior = this.operacaoAnterior.trim().slice(0, -1) + operacao;
+    this.num1 = this.num1.trim().slice(0, -1) + operacao;
 
   }
 
@@ -109,39 +109,39 @@ export class TemplateComponent {
       if (anterior === 0) {
         valorOperacao = atual;
       }
-      this.operacaoAnterior = `${atual} ${operacao}`;
+      this.num1 = `${atual} ${operacao}`;
 
       if (anterior > 0) {
-        this.operacaoAnterior = `${anterior} ${operacao} ${atual} =`
-        this.operacaoAtual = valorOperacao;
+        this.num1 = `${anterior} ${operacao} ${atual} =`
+        this.num2 = valorOperacao;
       } else {
-        this.operacaoAtual = "";
+        this.num2 = "";
       }
     }
   }
 
   processaOperacaoC() {
-    this.operacaoAtual = "";
-    this.operacaoAnterior = "";
+    this.num2 = "";
+    this.num1 = "";
   }
 
   processaOperacaoCE() {
-    this.operacaoAtual = "";
+    this.num2 = "";
 
   }
 
   processaOperacaoDEL() {
-    this.operacaoAtual = this.operacaoAtual.slice(0, -1);
+    this.num2 = this.num2.slice(0, -1);
   }
 
   processaOperacaoIgual() {
-    let operacao = this.operacaoAnterior.split(" ")[1];
-    this.primeiraOperacao = false;
+    let operacao = this.num1.split(" ")[1];
+    this.firstNumber = false;
     this.processaOperacao(operacao);
   }
 
   processaOperacaoPonto() {
-    this.operacaoAtual = ".";
+    this.num2 = ".";
   }
 
 }

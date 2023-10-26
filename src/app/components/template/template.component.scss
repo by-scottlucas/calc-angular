@@ -30,6 +30,7 @@
 
 .btns {
     display: grid;
+    grid-area: auto;
     // grid-template-columns: 100px 100px 100px 100px;
     grid-template-columns: 1fr 1fr 1fr 1fr;
 }
@@ -47,4 +48,8 @@
 
 .btns button:hover {
     background-color:#1f1f1f;
+}
+
+.btns .igual {
+    background-color: red;
 }

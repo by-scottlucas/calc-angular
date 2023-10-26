@@ -4,7 +4,7 @@
 
     <!-- <input type="text" class="display" id="display" {{ teste }}> -->
 
-    <p class="display">{{ operacaoAnterior }}  {{ operacaoAtual }}</p>
+    <p class="display">{{ num1 }}  {{ num2 }}</p>
 
     <article class="btns" id="btns">
 
@@ -32,10 +32,10 @@
 
         <button (click)="addDisplay('+')">+</button>
 
-        <button (click)="addDisplay('0')">0</button>
-        <button (click)="addDisplay('=')">=</button>
         <button (click)="addDisplay('.')">.</button>
-        <button (click)="addDisplay('%')">%</button>
+        <button (click)="addDisplay('0')">0</button>
+        <button (click)="addDisplay(',')">,</button>
+        <button (click)="addDisplay('=')" class="igual">=</button>
     </article>
 
 </main>
