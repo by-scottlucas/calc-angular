@@ -62,39 +62,52 @@ export class TemplateComponent {
         valorOperacao = anterior + atual;
         this.updateDisplay(valorOperacao, operacao, atual, anterior)
         break;
+
       case "-":
         valorOperacao = anterior - atual;
         this.updateDisplay(valorOperacao, operacao, atual, anterior)
         break;
+
       case "*":
         valorOperacao = anterior * atual;
         this.updateDisplay(valorOperacao, operacao, atual, anterior)
         break;
+
+      case "potencia":
+        this.processaOperacaoPotencia()
+        break;
+
       case "/":
         valorOperacao = anterior / atual;
         this.updateDisplay(valorOperacao, operacao, atual, anterior)
         break;
+
       case "C":
         this.processaOperacaoC()
         break;
+
       case "CE":
         this.processaOperacaoCE()
         break;
+
+      case "DEL":
+        this.processaOperacaoDEL()
+        break;
+
       case "=":
         this.processaOperacaoIgual()
         break;
+        
       case ".":
         this.processaOperacaoPonto()
-        break;
-      case "DEL":
-        this.processaOperacaoDEL()
         break;
     }
 
   }
+  
   alterarOperacao(operacao: any) {
 
-    const operacaoMat = ["+", "-", "*", "/"];
+    const operacaoMat = ["+", "-", "*", "**", "/"];
 
     if (operacao.includes(operacao)) {
       return;
@@ -106,6 +119,7 @@ export class TemplateComponent {
 
   updateDisplay(valorOperacao = null, operacao = null, atual: any, anterior: any) {
     if (valorOperacao !== null) {
+      
       if (anterior === 0) {
         valorOperacao = atual;
       }
@@ -127,11 +141,14 @@ export class TemplateComponent {
 
   processaOperacaoCE() {
     this.num2 = "";
-
   }
 
   processaOperacaoDEL() {
     this.num2 = this.num2.slice(0, -1);
+  }
+
+  processaOperacaoPotencia() {
+    this.num2 = this.num2 * this.num2;
   }
 
   processaOperacaoIgual() {
@@ -142,6 +159,10 @@ export class TemplateComponent {
 
   processaOperacaoPonto() {
     this.num2 = ".";
+  }
+
+  processaOperacaoVirgula() {
+    this.num2 = ",";
   }
 
 }
