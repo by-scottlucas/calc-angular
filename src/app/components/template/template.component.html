@@ -1,19 +1,22 @@
+<link rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+
 <main class="container">
 
     <h1>Calculadora</h1>
 
     <!-- <input type="text" class="display" id="display" {{ teste }}> -->
 
-    <p class="display">{{ num1 }}  {{ num2 }}</p>
+    <p class="display">{{ num1 }} {{ num2 }}</p>
 
     <article class="btns" id="btns">
 
 
         <button (click)="addDisplay('C')">C</button>
         <button (click)="addDisplay('CE')">CE</button>
-        <button (click)="addDisplay('DEL')"><img src="../../../assets/del.png"></button>
+        <button (click)="addDisplay('DEL')"><span class="material-symbols-outlined size">backspace</span></button>
         <button (click)="addDisplay('potencia')">x²</button>
-        
+
         <button (click)="addDisplay('7')">7</button>
         <button (click)="addDisplay('8')">8</button>
         <button (click)="addDisplay('9')">9</button>
