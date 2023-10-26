@@ -8,21 +8,25 @@ import { Component, Input } from '@angular/core';
 
 export class TemplateComponent {
 
-  n1: number = 1;
-  n2: number = 2;
-  n3: number = 3;
-  n4: number = 4;
-  n5: number = 5;
-  n6: number = 6;
-  n7: number = 7;
-  n8: number = 8;
-  n9: number = 9;
+  n1: number = 0;
+  n2: number = 0;
+  n3: number = 0;
+  n4: number = 0;
+  n5: number = 0;
+  n6: number = 0;
+  n7: number = 0;
+  n8: number = 0;
+  n9: number = 0;
   n0: number = 0;
 
   display: string = '';
 
   limpar() {
     this.display = '';
+  }
+
+  limparRegistro() {
+    location.reload();
   }
 
   num0() {
