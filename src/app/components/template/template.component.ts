@@ -113,7 +113,7 @@ export class TemplateComponent {
       return;
     }
 
-    this.num1 = this.num1.trim().slice(0, -1) + operacao;
+    this.num1 = this.num1.trim().slice(0, -1) + operacao.toFixed();
 
   }
 

@@ -1,11 +1,11 @@
 @import url('https://fonts.cdnfonts.com/css/bebas-neue');
 
 .container {
-    padding: 8px;
+    padding: 10px;
     width: 350px;
     display: flex;
     flex-direction: column;
-    border-radius: 6px;
+    border-radius: 9px;
     background-color: #32323c;
 }
 
@@ -19,7 +19,7 @@
 
 .display {
     font-family: Calibri;
-    font-size: 3rem;
+    font-size: 2.5rem;
     text-align: end;
     align-items: center;
     justify-content: center;
@@ -50,14 +50,6 @@
 
 .btns button:hover {
     background-color:#1c1c27;
-}
-
-.btns .igual {
-    background-color: steelblue;
-}
-
-.btns .igual:hover {
-    background-color: #265a85;
 }
 
 button img {
