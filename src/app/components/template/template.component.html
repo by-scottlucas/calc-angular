@@ -11,32 +11,32 @@
 
         <button (click)="limpar()">C</button>
         <button (click)="limparRegistro()">CE</button>
-        <button id="porcent">%</button>
-        <button id="divisao">÷</button>
+        <button (click)="porcent()" [value]="porcent">%</button>
+        <button (click)="divisao()">÷</button>
         
         <button (click)="num7()" [value]="n7">7</button>
         <button (click)="num8()" [value]="n8">8</button>
         <button (click)="num9()" [value]="n9">9</button>
 
-        <button id="multip">X</button>
+        <button (click)="multipli()">X</button>
 
         <button (click)="num4()" [value]="n4">4</button>
         <button (click)="num5()" [value]="n5">5</button>
         <button (click)="num6()" [value]="n6">6</button>
 
-        <button id="subtracao">-</button>
+        <button (click)="subtracao()">-</button>
 
         <button (click)="num3()" [value]="n3">3</button>
         <button (click)="num2()" [value]="n2">2</button>
         <button (click)="num1()" [value]="n1">1</button>
 
-        <button>+</button>
+        <button (click)="soma()">+</button>
 
-        <button id="model">+/-</button>
+        <button (click)="model()">+/-</button>
         <button (click)="num0()" [value]="n0">0</button>
-        <button id="virgula">,</button>
+        <button (click)="virgula()">,</button>
 
-        <button>=</button>
+        <button (click)="resultado()">=</button>
     </article>
 
 </main>
