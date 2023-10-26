@@ -54,7 +54,7 @@ export class TemplateComponent {
       return;
     }
     let valorOperacao: any;
-    let anterior = +this.operacaoAnterior.split("")[0];
+    let anterior = +this.operacaoAnterior.split(" ")[0];
     let atual = +this.operacaoAtual;
 
     switch (operacao) {
@@ -102,7 +102,6 @@ export class TemplateComponent {
 
     this.operacaoAnterior = this.operacaoAnterior.trim().slice(0, -1) + operacao;
 
-
   }
 
   updateDisplay(valorOperacao = null, operacao = null, atual: any, anterior: any) {
@@ -144,8 +143,5 @@ export class TemplateComponent {
   processaOperacaoPonto() {
     this.operacaoAtual = ".";
   }
-
-
-
 
 }
