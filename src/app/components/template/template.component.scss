@@ -1,3 +1,5 @@
+@import url('https://fonts.cdnfonts.com/css/bebas-neue');
+
 .container {
     padding: 8px;
     width: 350px;
@@ -9,7 +11,8 @@
 
 .container h1 {
     color: #fff;
-    font-family: Calibri;
+    font-family: "Bebas Neue";
+    letter-spacing: 5px;
     text-align: center;
     margin-bottom: 10px;
 }
@@ -47,9 +50,15 @@
 }
 
 .btns button:hover {
-    background-color:#1f1f1f;
+    background-color:#1c1c27;
 }
 
 .btns .igual {
-    background-color: red;
+    background-color: steelblue;
 }
+
+.btns .igual:hover {
+    background-color: #265a85;
+}
+
+
